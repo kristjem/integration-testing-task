@@ -1,0 +1,19 @@
+meta {
+  name: delete user by username
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:3000/users/:username
+  body: none
+  auth: inherit
+}
+
+params:path {
+  username: 5
+}
+
+script:pre-request {
+  let username = '5'
+}

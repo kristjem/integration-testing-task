@@ -1,0 +1,21 @@
+auth {
+  mode: none
+}
+
+docs {
+  This API manages **users**, each with a `username`, `password`, and `score`.  
+  It supports basic CRUD operations and includes integration tests for all endpoints.
+  
+  ### Routes
+  
+  - `GET /users`  
+    Retrieve all users.
+  
+  - `POST /users`  
+    Add a new user. Requires `username`, `password`, and `score` in the body.
+  
+  - `DELETE /users/:username`  
+    Delete a user by username.
+  
+  All routes handle errors and return clear status codes and messages.
+}

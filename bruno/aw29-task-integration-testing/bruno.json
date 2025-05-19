@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "name": "aw29-task-integration-testing",
+  "type": "collection",
+  "ignore": ["node_modules", ".git"],
+  "size": 0,
+  "filesCount": 0,
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "http://localhost:3000"
+  }
+}
