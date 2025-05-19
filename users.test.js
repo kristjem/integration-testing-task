@@ -34,7 +34,6 @@ describe("testing-server-routes", () => {
       ...newUser // unpack the newUser object
     });
 
-    jest.spyOn(userService, "getOneByUsername").mockResolvedValue(undefined);
   });
 
   afterAll(async () => {
@@ -76,6 +75,7 @@ describe("testing-server-routes", () => {
   });
 
   test("POST /users - success", async () => {
+    jest.spyOn(userService, "getOneByUsername").mockResolvedValue(undefined);
     const { body, status } = await request(app)
       .post("/users")
       .send(newUser);
@@ -91,6 +91,7 @@ describe("testing-server-routes", () => {
   });
 
   test("POST /users - missing password", async () => {
+    jest.spyOn(userService, "getOneByUsername").mockResolvedValue(undefined);
     const { body, status } = await request(app)
       .post("/users")
       .send(newUserMissingPassword);
