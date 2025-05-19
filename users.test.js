@@ -74,6 +74,24 @@ describe("testing-server-routes", () => {
     });
   });
 
+  test("GET /users/:username - success", async () => {
+    jest.spyOn(userService, "getOneByUsername").mockResolvedValue({
+      id: 123, // any number, represents autoincremented PK returned by the db
+      ...newUser // unpack the newUser object
+    });
+    const { body, status } = await request(app)
+      .get(`/users/${newUser.username}`);
+
+    expect(status).toBe(200);
+    expect(body).toEqual({
+      success: true,
+      data: {
+        id: expect.any(Number), // represents autoincremented PK returned by the db
+        ...newUser // unpack the newUser object
+      }
+    });
+  });
+
   test("POST /users - success", async () => {
     jest.spyOn(userService, "getOneByUsername").mockResolvedValue(undefined);
     const { body, status } = await request(app)
